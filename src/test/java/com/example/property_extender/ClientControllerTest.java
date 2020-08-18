@@ -59,7 +59,7 @@ class ClientControllerTest {
 
 	//test case to get all clients
 	@Test
-	void () throws Exception {
+	void TestPassesIfGetReturnsTwoClients() throws Exception {
 		List<Client> allClients = new ArrayList<>();
 		allClients.add(new Client(1,"Alvi",15101062L));
 		allClients.add(new Client(2,"Moin", 15101063L));
@@ -72,18 +72,16 @@ class ClientControllerTest {
 	}
 
 	@Test
-	void saveClient() throws Exception{
+	void TestPassesIfStatusIsCreated() throws Exception{
 
 		Client client=new Client(1,"Alvi",15101062L);
 
-		//when(clientService.addClient(client)).thenReturn(client);
+		//when(clientService.addClient(client)).thenReturn("Test Successful");
 
 		mockMvc.perform(MockMvcRequestBuilders.post("/clients")
 				.contentType(contentType)
 				.content(jsonMapper.writeValueAsString(client))
-		)
-				.andDo(print())
-				.andExpect(status().isCreated());
+		).andDo(print()).andExpect(content().string("Adding Successful"));
 				//.andExpect(content().contentType(contentType));
 
 	}

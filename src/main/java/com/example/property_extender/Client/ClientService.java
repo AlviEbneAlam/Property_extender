@@ -2,6 +2,8 @@ package com.example.property_extender.Client;
 
 import com.example.property_extender.Property.Property;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -22,10 +24,10 @@ public class ClientService {
 
     }*/
 
-    public void addClient(Client client){
-        clientRepository.save(client);
+    public Client addClient(Client client){
         client.setPropertyList(new ArrayList<>(Arrays.asList(new Property(1,"Moin","1256388"))));
         clientRepository.save(client);
+        return client;
     }
 
 
@@ -33,7 +35,8 @@ public class ClientService {
         return clientRepository.findAll();
     }
 
-    public Client getClientById(int client_id) {
-        return clientRepository.findById(client_id).get();
+    public Client getClientById(int id){
+        return clientRepository.findById(id).get();
     }
+
 }

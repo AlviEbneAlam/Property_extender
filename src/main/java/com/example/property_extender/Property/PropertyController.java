@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping
 public class PropertyController {
 
     @Autowired
@@ -24,12 +25,12 @@ public class PropertyController {
         return new ResponseEntity(HttpStatus.CREATED);
     }*/
 
-    @RequestMapping(method= RequestMethod.GET,value="/properties")
+    @GetMapping(value="/properties")
     public List<Property> getAllProperties() {
         return propertyService.allProperties();
     }
 
-    @RequestMapping(method= RequestMethod.POST,value="client/{client_id}/property")
+    @PostMapping("/client/{client_id}/property")
     public void addProperty(@PathVariable int client_id, @RequestBody Property property) {
         propertyService.addProperty(client_id,property);
     }

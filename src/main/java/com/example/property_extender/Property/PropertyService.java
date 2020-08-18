@@ -17,13 +17,14 @@ public class PropertyService {
     @Autowired
     private ClientRepository clientRepository;
 
-    public void addProperty(int clientId, Property property){
+    public String addProperty(int clientId, Property property){
 
         propertyRepository.save(property);
         Client client=clientRepository.findById(clientId).get();
         client.getPropertyList().add(property);
         //customerRepository.findById(customerId).get().getOrders().add(order);
         clientRepository.save(client);
+        return property.getName();
     }
 
 

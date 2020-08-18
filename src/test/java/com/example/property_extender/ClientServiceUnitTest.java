@@ -4,6 +4,7 @@ package com.example.property_extender;
 import com.example.property_extender.Client.Client;
 import com.example.property_extender.Client.ClientRepository;
 import com.example.property_extender.Client.ClientService;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -16,6 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Optional;
 
 
 @ExtendWith(SpringExtension.class)
@@ -28,7 +30,8 @@ public class ClientServiceUnitTest {
     @Mock
     private ClientRepository clientRepository;
 
-    /*@Test
+    //@Disabled("Pre Refractor code")
+    @Test
     public void TestIsSuccessfulIfClientIsAdded(){
         Client client=new Client(1,"Moin",15101064L);
         when(clientRepository.save(client)).thenReturn(client);
@@ -43,7 +46,14 @@ public class ClientServiceUnitTest {
         assertThat(clientService.allClients().size()).isEqualTo(2);
     }
 
+    @Test
+    public void TestPassesIfClientIsFoundById(){
 
-*/
+        Client client=new Client(1,"alvi",178999L);
+
+        when(clientRepository.findById(1)).thenReturn(Optional.of(client));
+
+        assertThat(clientService.getClientById(1).getName()).isEqualTo(client.getName());
+    }
 }
 
