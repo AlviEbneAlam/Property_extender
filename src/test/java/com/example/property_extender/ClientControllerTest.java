@@ -53,11 +53,11 @@ class ClientControllerTest {
 
 		allClients.add(new Client(1,"Alvi",15101062L,"random",
 				167863L,168893L,"random",
-				"random","random","random","random"));
+				"random","random","random"));
 
 		allClients.add(new Client(2,"Moin",15101062L,"random",
 				167863L,168893L,"random",
-				"random","random","random","random"));
+				"random","random","random"));
 
 		when(clientService.allClients()).thenReturn(allClients);
 
@@ -71,7 +71,7 @@ class ClientControllerTest {
 
 		Client client = new Client(1, "Alvi", 15101062L, "random",
 				167863L, 168893L, "random",
-				"random", "random", "random", "random");
+				"random", "random", "random");
 
 
 

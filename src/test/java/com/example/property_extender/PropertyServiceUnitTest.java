@@ -91,15 +91,15 @@ public class PropertyServiceUnitTest {
     @Test
     public void TestPassesIfPropertyIsFoundByClientId(){
 
-        Property property=new Property(2,"Alvi","1256388",
-                "bank",10,"176839","random",
-                168963L,789927L,"random",
-                "random","random","random","random");
+        when(propertyRepository.findPropertyByClientId("1")).thenReturn(
+                new ArrayList<Property>(Arrays.asList(
+                        new Property(1,"Moin","1256388",
+                        "bank",10,"1","random",
+                        168963L,789927L,"random",
+                        "random","random","random","random"))));
 
 
-        when(propertyRepository.findPropertyByClientId("1")).thenReturn(property);
-
-        assertThat(propertyService.findPropertyByClientId("1").getName()).isEqualTo("Alvi");
+        assertThat(propertyService.findPropertyByClientId("1").size()).isEqualTo(1);
     }
 
 }

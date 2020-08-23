@@ -30,10 +30,10 @@ public class PropertyService {
     }
 
     public Property getPropertyByPropertyId(int property_id){
-     return propertyRepository.findById(property_id).get();
- }
+        return propertyRepository.findById(property_id).get();
+    }
 
-    public Property findPropertyByClientId(String client_id){
+    public List<Property> findPropertyByClientId(String client_id){
         return propertyRepository.findPropertyByClientId(client_id);
     }
 }

@@ -33,7 +33,7 @@ public class ClientServiceUnitTest {
     public void TestIsSuccessfulIfClientIsAdded(){
         Client client=new Client(1,"Alvi",15101062L,"random",
                 167863L,168893L,"random",
-                "random","random","random","random");
+                "random","random","random");
 
         when(clientRepository.save(client)).thenReturn(client);
 
@@ -46,11 +46,11 @@ public class ClientServiceUnitTest {
         when(clientRepository.findAll()).thenReturn(new ArrayList<Client>(Arrays.asList(
                 new Client(1,"Alvi",15101062L,"random",
                 167863L,168893L,"random",
-                "random","random","random","random"),
+                "random","random","random"),
 
                 new Client(1,"Rafin",15101062L,"random",
                         167863L,168893L,"random",
-                        "random","random","random","random"))));
+                        "random","random","random"))));
 
         assertThat(clientService.allClients().size()).isEqualTo(2);
     }
@@ -60,7 +60,7 @@ public class ClientServiceUnitTest {
 
         Client client=new Client(1,"Alvi",15101062L,"random",
                 167863L,168893L,"random",
-                "random","random","random","random");
+                "random","random","random");
 
         when(clientRepository.findById(1)).thenReturn(Optional.of(client));
 

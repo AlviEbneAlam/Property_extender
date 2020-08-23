@@ -63,16 +63,16 @@ public class Client {
         return LastUpdatedAt;
     }
 
-    public void setLastUpdatedAt(Long lastUpdatedAt) {
-        LastUpdatedAt = lastUpdatedAt;
+    public void setLastUpdatedAt(Long LastUpdatedAt) {
+        LastUpdatedAt = LastUpdatedAt;
     }
 
     public String getLastUpdatedBy() {
         return LastUpdatedBy;
     }
 
-    public void setLastUpdatedBy(String lastUpdatedBy) {
-        LastUpdatedBy = lastUpdatedBy;
+    public void setLastUpdatedBy(String LastUpdatedBy) {
+        LastUpdatedBy = LastUpdatedBy;
     }
 
     public String getDescription() {
@@ -101,15 +101,15 @@ public class Client {
 
 
     public Client(int id, String name, Long code, String createdBy,
-                  Long createdAt, Long lastUpdatedAt, String lastUpdatedBy,
-                  String description, String comments, String extra, String constraint) {
+                  Long createdAt, Long LastUpdatedAt, String LastUpdatedBy,
+                  String description, String comments, String extra) {
         this.id = id;
         this.name = name;
         this.code = code;
         this.createdBy = createdBy;
         this.createdAt = createdAt;
-        this.LastUpdatedAt = lastUpdatedAt;
-        this.LastUpdatedBy = lastUpdatedBy;
+        this.LastUpdatedAt = LastUpdatedAt;
+        this.LastUpdatedBy = LastUpdatedBy;
         this.description = description;
         this.comments = comments;
         this.extra = extra;
