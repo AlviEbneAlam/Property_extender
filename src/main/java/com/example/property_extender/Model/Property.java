@@ -1,4 +1,4 @@
-package com.example.property_extender.Property;
+package com.example.property_extender.Model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,7 +10,7 @@ public class Property {
     private int id;
     private String name;
     private String code;
-    /*private String type;
+    private String type;
     private int length;
     private String clientId;
     private String createdBy;
@@ -20,7 +20,7 @@ public class Property {
     private String description;
     private String comments;
     private String extra;
-    private String constraint;*/
+    private String constraint;
 
     public int getId() {
         return id;
@@ -46,7 +46,7 @@ public class Property {
         this.code = code;
     }
 
-    /*public String getType() {
+    public String getType() {
         return type;
     }
 
@@ -133,19 +133,18 @@ public class Property {
     public void setConstraint(String constraint) {
         this.constraint = constraint;
     }
-*/
 
 
 
-    public Property(int id, String name, String code/*, String type*//*,
+    public Property(int id, String name, String code, String type,
                     int length, String clientId, String createdBy,
                     Long createdAt, Long LastUpdatedAt, String LastUpdatedBy,
-                    String description, String comments, String extra, String constraint*/) {
+                    String description, String comments, String extra, String constraint) {
 
         this.id = id;
         this.name = name;
         this.code = code;
-        /*this.type = type;
+        this.type = type;
         this.length = length;
         this.clientId = clientId;
         this.createdBy = createdBy;
@@ -155,7 +154,7 @@ public class Property {
         this.description = description;
         this.comments = comments;
         this.extra = extra;
-        this.constraint = constraint;*/
+        this.constraint = constraint;
 
     }
 

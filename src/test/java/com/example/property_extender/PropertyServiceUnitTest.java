@@ -1,11 +1,9 @@
 package com.example.property_extender;
 
-import com.example.property_extender.Client.Client;
-import com.example.property_extender.Client.ClientRepository;
-import com.example.property_extender.Client.ClientService;
-import com.example.property_extender.Property.Property;
-import com.example.property_extender.Property.PropertyRepository;
-import com.example.property_extender.Property.PropertyService;
+import com.example.property_extender.Repository.ClientRepository;
+import com.example.property_extender.Model.Property;
+import com.example.property_extender.Repository.PropertyRepository;
+import com.example.property_extender.Service.PropertyService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -31,33 +29,77 @@ public class PropertyServiceUnitTest {
     @Mock
     private PropertyRepository propertyRepository;
 
+    @Mock
+    private ClientRepository clientRepository;
+
     /*@Test
     public boolean ReturnsFalseIfPropertyIsNull(){
 
     }*/
 
-   /* @Test
+    @Test
     public void TestIsSuccessfulIfPropertyIsAdded(){
-        Property property=new Property(1,"Moin","15101064L");
+        Property property=new Property(
+                1,"Moin","1256388",
+                "bank",10,"random","random",
+                168963L,789927L,"random",
+                "random","random","random","random");
+
+
         when(propertyRepository.save(property)).thenReturn(property);
 
-        assertThat(propertyService.addProperty(property)).isEqualTo("Moin");
+
+        assertThat(propertyService.addProperty(property).getName()).isEqualTo("Moin");
     }
 
     @Test
     public void TestIsFindingClientsInDatabaseUsingMockito(){
         System.out.println("Finding all customers");
-        when(clientRepository.findAll()).thenReturn(new ArrayList<Client>(Arrays.asList(new Client(1,"Alvi",1234567L),new Client(2, "Rafin",14526347L))));
-        assertThat(clientService.allClients().size()).isEqualTo(2);
+        when(propertyRepository.findAll()).thenReturn(new ArrayList<Property>(Arrays.asList(
+
+                new Property(1,"Moin","1256388",
+                        "bank",10,"random","random",
+                        168963L,789927L,"random",
+                        "random","random","random","random"),
+
+                new Property(2,"Alvi","1256388",
+                        "bank",10,"random","random",
+                        168963L,789927L,"random",
+                        "random","random","random","random")
+        )));
+
+
+
+
+        assertThat(propertyService.allProperties().size()).isEqualTo(2);
     }
 
     @Test
-    public void TestPassesIfClientIsFoundById(){
+    public void TestPassesIfPropertyIsFoundByPropertyId(){
 
-        Client client=new Client(1,"alvi",178999L);
+        Property property=new Property(2,"Alvi","1256388",
+                "bank",10,"random","random",
+                168963L,789927L,"random",
+                "random","random","random","random");
 
-        when(clientRepository.findById(1)).thenReturn(Optional.of(client));
 
-        assertThat(clientService.getClientById(1).getName()).isEqualTo(client.getName());
-    }*/
+        when(propertyRepository.findById(1)).thenReturn(Optional.of(property));
+
+        assertThat(propertyService.getPropertyByPropertyId(1).getName()).isEqualTo("Alvi");
+    }
+
+    @Test
+    public void TestPassesIfPropertyIsFoundByClientId(){
+
+        Property property=new Property(2,"Alvi","1256388",
+                "bank",10,"176839","random",
+                168963L,789927L,"random",
+                "random","random","random","random");
+
+
+        when(propertyRepository.findPropertyByClientId("1")).thenReturn(property);
+
+        assertThat(propertyService.findPropertyByClientId("1").getName()).isEqualTo("Alvi");
+    }
+
 }
