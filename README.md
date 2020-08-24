@@ -4,7 +4,7 @@ Property Extender
 What is property extender?
 -
 
-Property extender is a standalone service which adds additional properties to business object e.g. Client object in this program and manages the metadata associated with those properties.  
+Property extender is a standalone service which adds additional properties to business entities e.g. Client entity in this program and manages the metadata associated with those properties. Metadata refers to data that stores information about other data. In our service, attributes like name, clientId, dates of creation and updates are metadatas of that specific property object.
 
 
 
