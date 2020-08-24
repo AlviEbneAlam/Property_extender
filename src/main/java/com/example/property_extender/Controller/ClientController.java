@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/api")
 public class ClientController {
 
 
@@ -30,7 +30,6 @@ public class ClientController {
         return new ResponseEntity<Client>(clientService.addClient(client),HttpStatus.CREATED);
         //return new ResponseEntity<>("Adding Successful",HttpStatus.CREATED);
         //return ResponseEntity.accepted().body(client1);
-
     }
 
     @GetMapping("/clients/{client_id}")
